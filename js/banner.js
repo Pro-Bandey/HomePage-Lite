@@ -1,4 +1,4 @@
-const extApi = typeof browser !== "undefined" ? browser : chrome;
+const extBanner = typeof browser !== "undefined" ? browser : chrome;
 const banner = document.getElementById('welcome-banner');
 const closeBtn = document.getElementById('close-banner');
 
@@ -9,11 +9,11 @@ function hideBanner() {
 // Close button logic
 closeBtn.addEventListener('click', () => {
     hideBanner();
-    extApi.storage.local.set({ bannerDismissed: true });
+    extBanner.storage.local.set({ bannerDismissed: true });
 });
 
 // Check storage to see if we should display the banner
-extApi.storage.local.get(['bannerStartTime', 'bannerDismissed'], (data) => {
+extBanner.storage.local.get(['bannerStartTime', 'bannerDismissed'], (data) => {
     if (data.bannerDismissed) return;
     
     const now = Date.now();
@@ -24,6 +24,6 @@ extApi.storage.local.get(['bannerStartTime', 'bannerDismissed'], (data) => {
     if (timeElapsed < 60000) { 
         banner.style.display = 'flex';
         // Auto-hide the banner after the remaining time finishes
-        setTimeout(hideBanner, 300000 - timeElapsed);
+        setTimeout(hideBanner, 30000 - timeElapsed);
     }
 });

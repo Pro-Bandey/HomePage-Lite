@@ -1,7 +1,7 @@
-const extApi0 = typeof browser !== "undefined" ? browser : chrome;
+const extOpenLinkAndfetchData = typeof browser !== "undefined" ? browser : chrome;
 
 // Listen for the live data sent every second from content.js
-extApi0.runtime.onMessage.addListener((message, sender, sendResponse) => {
+extOpenLinkAndfetchData.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "sync_metadata") {
 
         // 1. Sync Title
