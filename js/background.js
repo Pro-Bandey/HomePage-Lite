@@ -1,21 +1,21 @@
-// const ext = typeof browser !== "undefined" ? browser : chrome;
+const ext = typeof browser !== "undefined" ? browser : chrome;
 
-// ext.runtime.onInstalled.addListener((details) => {
-//     if (details.reason === "install") {
-//         ext.tabs.create({
-//             url: "https://github.com/pro-bandey/homepage-lite"
-//         });
-//     }
-//     ext.storage.local.set({ bannerStartTime: Date.now(), bannerDismissed: false });
-// });
+ext.runtime.onInstalled.addListener((details) => {
+    if (details.reason === "install") {
+        ext.tabs.create({
+            url: "https://github.com/pro-bandey/homepage-lite"
+        });
+    }
+    ext.storage.local.set({ bannerStartTime: Date.now(), bannerDismissed: false });
+});
 
-// ext.runtime.onStartup.addListener(() => {
-//     ext.storage.local.set({ bannerStartTime: Date.now(), bannerDismissed: false });
-// });
+ext.runtime.onStartup.addListener(() => {
+    ext.storage.local.set({ bannerStartTime: Date.now(), bannerDismissed: false });
+});
 
-// ext.runtime.setUninstallURL(
-//     "https://github.com/pro-bandey/homepage-lite"
-// );
+ext.runtime.setUninstallURL(
+    "https://github.com/pro-bandey/homepage-lite"
+);
 
 
 // FireFoxe--------------
