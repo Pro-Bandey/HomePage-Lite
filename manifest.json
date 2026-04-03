@@ -1,54 +1,49 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "HomePage Lite",
   "version": "15.0",
   "description": "HomePage Pro Web Version Via iframe",
   "chrome_url_overrides": {
-    "newtab": "pages/index.html"
+    "newtab": "pages/index.html",
+    "homepage": "pages/index.html"
   },
-  "permissions": [
-    "tabs",
-    "storage",
-    "https://online-homepage-pro.vercel.app/*"
-  ],
-  "background": {
-    "scripts": ["js/background.js"]
-  },
-  "browser_action": {
+  "action": {
     "default_popup": "pages/popup.html",
     "default_title": "HomePage Lite",
     "default_icon": {
       "16": "icons/16.png",
       "32": "icons/32.png",
       "48": "icons/48.png",
-      "64": "icons/64.png"
+      "64": "icons/64.png",
+      "128": "icons/128.png"
     }
   },
   "icons": {
     "16": "icons/16.png",
     "32": "icons/32.png",
     "48": "icons/48.png",
-    "64": "icons/64.png"
+    "64": "icons/64.png",
+    "128": "icons/128.png"
   },
-  "sidebar_action": {
-    "default_title": "HomePage Lite",
-    "default_panel": "pages/sidebar.html"
+  "side_panel": {
+    "default_path": "pages/sidebar.html"
   },
-  "web_accessible_resources": ["js/inject.js"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["js/inject.js"],
+      "matches": ["https://online-homepage-pro.vercel.app/*"]
+    }
+  ],
+  "permissions": ["sidePanel", "tabs", "storage"],
+  "host_permissions": ["https://online-homepage-pro.vercel.app/*"],
   "content_scripts": [
     {
       "matches": ["https://online-homepage-pro.vercel.app/*"],
       "js": ["js/content.js"],
       "all_frames": true
     }
-  ],
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "homepage-lite@pro-bandey.com",
-      "strict_min_version": "142.0",
-      "data_collection_permissions": {
-        "required": ["none"]
-      }
-    }
-  }
+  ]
 }
