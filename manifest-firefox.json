@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "HomePage Lite",
-  "version": "11.5",
+  "version": "15.0",
   "description": "HomePage Pro Web Version Via iframe",
   "chrome_url_overrides": {
     "newtab": "pages/index.html"
@@ -34,6 +34,7 @@
     "default_title": "HomePage Lite",
     "default_panel": "pages/sidebar.html"
   },
+  "web_accessible_resources": ["js/inject.js"],
   "content_scripts": [
     {
       "matches": ["https://online-homepage-pro.vercel.app/*"],
