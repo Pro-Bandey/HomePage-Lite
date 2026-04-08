@@ -1,10 +1,7 @@
 
 const extOpenLink = typeof browser !== "undefined" ? browser : chrome;
-
 extOpenLink.runtime.onMessage.addListener((message, sender, sendResponse) => {
-
     if (message.action === 'open_url') {
-
         if (message.target === 'current') {
             if (sender.tab && sender.tab.id) {
                 extOpenLink.tabs.update(sender.tab.id, { url: message.url });
@@ -12,7 +9,6 @@ extOpenLink.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 extOpenLink.tabs.update({ url: message.url });
             }
         }
-
         else if (message.target === 'new') {
             extOpenLink.tabs.create({ url: message.url });
         }
