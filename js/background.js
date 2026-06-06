@@ -1,5 +1,6 @@
 
 const extOpenLink = typeof browser !== "undefined" ? browser : chrome;
+
 extOpenLink.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'open_url') {
         if (message.target === 'current') {

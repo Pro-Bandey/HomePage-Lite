@@ -11,6 +11,7 @@
     "storage",
     "https://online-homepage-pro.vercel.app/*"
   ],
+  
   "background": {
     "scripts": ["js/background.js"]
   },
@@ -43,7 +44,9 @@
       "128": "icons/128.png"
     }
   },
+
   "web_accessible_resources": ["js/inject.js"],
+  
   "content_scripts": [
     {
       "matches": ["https://online-homepage-pro.vercel.app/*"],
